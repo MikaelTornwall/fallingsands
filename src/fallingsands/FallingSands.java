@@ -36,28 +36,28 @@ public class FallingSands extends Application {
         
         Simulation simulation = new Simulation(width, height);               
                 
-        ToggleGroup nappiryhma = new ToggleGroup();
+        ToggleGroup btngroup = new ToggleGroup();
         
         RadioButton button1 = new RadioButton("Metal");
-        button1.setToggleGroup(nappiryhma);
+        button1.setToggleGroup(btngroup);
         RadioButton button2 = new RadioButton("Sand");
-        button2.setToggleGroup(nappiryhma);
+        button2.setToggleGroup(btngroup);
         RadioButton button3 = new RadioButton("Water");
-        button3.setToggleGroup(nappiryhma);        
+        button3.setToggleGroup(btngroup);        
         
         Canvas canvas = new Canvas(width, height);
         GraphicsContext piirturi = canvas.getGraphicsContext2D();
         piirturi.setFill(Color.BLACK);
         piirturi.fillRect(0, 0, width, height);
         
-        VBox valikko = new VBox();
-        valikko.getChildren().add(button1);
-        valikko.getChildren().add(button2);
-        valikko.getChildren().add(button3);
+        VBox menu = new VBox();
+        menu.getChildren().add(button1);
+        menu.getChildren().add(button2);
+        menu.getChildren().add(button3);
         
-        BorderPane asettelu = new BorderPane();
-        asettelu.setCenter(canvas);
-        asettelu.setRight(valikko);                
+        BorderPane posit = new BorderPane();
+        posit.setCenter(canvas);
+        posit.setRight(menu);                
         
         button1.setOnMouseClicked(event -> {
            button1.setSelected(true);
@@ -148,9 +148,9 @@ public class FallingSands extends Application {
         }.start();
         
         
-        Scene nakyma = new Scene(asettelu);
+        Scene scene = new Scene(posit);
         
-        ikkuna.setScene(nakyma);
+        ikkuna.setScene(scene);
         ikkuna.setTitle("Falling Sands");
         ikkuna.show();        
     }
